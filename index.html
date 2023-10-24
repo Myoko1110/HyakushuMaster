@@ -1,0 +1,39 @@
+<html lang="j">
+<head>
+	<title>百首マスター</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+<div class="container">
+	<div id="main">
+		<h1>百首マスター</h1>
+		<a class="container-btn" id="start">スタート</a>
+	</div>
+	<div id="question" style="display: none">
+		<p>空欄に当てはまるものを答えなさい。</p>
+		<div class="question-box"></div>
+		<a class="container-btn" id="answer">確定</a>
+	</div>
+	<div id="correct" style="display: none">
+		<h1 style="color: #e13f4d">◯正解</h1>
+		<p class="answer-poem"></p>
+		<a class="container-btn next">次へ</a>
+	</div>
+	<div id="incorrect" style="display: none">
+		<h1 style="color: #3f5fe1">×不正解</h1>
+		<p class="answer-poem"></p>
+		<p class="answer-your">あなたの回答<span></span></p>
+		<a class="container-btn next">次へ</a>
+	</div>
+	<div id="result" style="display: none">
+		<h1>結果</h1>
+		<p>正解<span class="result-length correct"></span></p>
+		<p>不正解<span class="result-length incorrect"></span></p>
+		<a class="container-btn" id="return">戻る</a>
+	</div>
+</div>
+</body>
+</html>
