@@ -363,18 +363,24 @@ function answerProgress(){
     }
 
     $(".answer-poem").each(function (){
-        answer = ""
+        answer = "";
 
         let html = "";
         for (let i = 0; i < 5; i++){
             if (i === poemIndex){
-                html += " <strong>" + poem.kanji[i] + "</strong>"
+                if (i === 0) {
+                    html += "<strong>" + poem.kanji[i] + "</strong>";
+                }else if (i === 2){
+                    html += " <strong>" + poem.kanji[i] + "</strong><br>";
+                }else{
+                    html += " <strong>" + poem.kanji[i] + "</strong>";
+                }
             }else if (i === 0) {
                 html += poem.kanji[i]
             }else if (i === 2){
-                html += " " + poem.kanji[i] + "<br>"
+                html += " " + poem.kanji[i] + "<br>";
             }else{
-                html += " " + poem.kanji[i]
+                html += " " + poem.kanji[i];
             }
         }
 
