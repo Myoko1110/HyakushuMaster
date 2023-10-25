@@ -445,6 +445,8 @@ function result(){
     $("#result").css("display", "");
     $(".result-length.correct").text(correct.length);
     $(".result-length.incorrect").text(incorrect.length);
+
+    poemNumber = 0;
 }
 
 window.onkeydown = function (e){
