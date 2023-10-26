@@ -8,8 +8,8 @@ request.send();
 // JSONデータをJavaScriptオブジェクトに変換
 request.onload = function () {
   let data = request.response;
-  poem = JSON.parse(JSON.stringify(data));
-  console.log(poem)
+  poems = JSON.parse(JSON.stringify(data));
+  console.log(poems)
 }
 
 let poemIndex;
