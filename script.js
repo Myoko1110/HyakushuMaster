@@ -131,15 +131,25 @@ function format(index){
     kami = poems[index].kami.split(" ")
     simo = poems[index].simo.split(" ")
  
-    p = [];
+    k = [];
     for (i in kami){
-        p.push(i);
+        k.push(i);
     }
     for (i in simo){
-        p.push(i);
+        k.push(i);
+    }
+    kami = poems[index]["kami-kana"].split(" ")
+    simo = poems[index]["simo-kana"].split(" ")
+ 
+    h = [];
+    for (i in kami){
+        h.push(i);
+    }
+    for (i in simo){
+        h.push(i);
     }
 
-    return p;
+    return {hiragana: h, kanji: k};
 }
 
 window.onkeydown = function (e){
