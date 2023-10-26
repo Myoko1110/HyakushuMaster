@@ -1,3 +1,8 @@
+const fs = require('fs');    // モジュールの読み込み
+
+const json = fs.readFileSync("https://api.aoikujira.com/hyakunin/get2.php?fmt=json", "UTF-8")
+const data = JSON.parse(json)
+
 const poems = [
     {
         "higarana": [
