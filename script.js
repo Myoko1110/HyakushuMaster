@@ -121,6 +121,11 @@ function viewQuestion(){
             answerProgress();
         }
     });
+
+    setTimeout(function (){
+        $("#field").focus()
+    }, 25);
+
 }
 
 function result(){
