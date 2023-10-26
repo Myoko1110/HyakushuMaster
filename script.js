@@ -1,7 +1,15 @@
-const fs = require('fs');    // モジュールの読み込み
-
-const json = fs.readFileSync("https://api.aoikujira.com/hyakunin/get2.php?fmt=json", "UTF-8")
-const data = JSON.parse(json)
+let requestURL = 'https://api.aoikujira.com/hyakunin/get2.php?fmt=json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+ 
+// JSONデータをJavaScriptオブジェクトに変換
+request.onload = function () {
+  let data = request.response;
+  data = JSON.parse(JSON.stringify(data));
+  console.log(data)
+}
 
 const poems = [
     {
