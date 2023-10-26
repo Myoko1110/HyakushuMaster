@@ -7,9 +7,8 @@ request.send();
  
 // JSONデータをJavaScriptオブジェクトに変換
 request.onload = function () {
-  let data = request.response;
-  poems = JSON.parse(JSON.stringify(data));
-  console.log(poems)
+    let data = request.response;
+    poems = JSON.parse(JSON.stringify(data));
 }
 
 let poemIndex;
@@ -44,7 +43,7 @@ function answerProgress(){
     $("#question").css("display", "none");
 
     let answer = $("#field").val();
-    if (poem.higarana[poemIndex] === answer){
+    if (poem["hiragana"][poemIndex] === answer){
         $("#correct").css("display", "");
         correct.push(poemNumber);
     }else{
@@ -81,6 +80,11 @@ function answerProgress(){
 }
 
 function viewQuestion(){
+    if (poemNumber === 50){
+        result();
+        return;
+    }
+
     poemIndex = Math.floor(Math.random() * 5)
     poem = poems[poemNumber];
 
@@ -128,27 +132,28 @@ function result(){
 }
 
 function format(index){
-    kami = poems[index].kami.split(" ")
-    simo = poems[index].simo.split(" ")
+    let kami = poems[index]["kami"].split(" ")
+    let simo = poems[index]["simo"].split(" ")
  
     k = [];
-    for (i in kami){
-        k.push(i);
+    for (const i in kami){
+        k.push(kami[i]);
     }
     for (i in simo){
-        k.push(i);
-    }
-    kami = poems[index]["kami-kana"].split(" ")
-    simo = poems[index]["simo-kana"].split(" ")
- 
-    h = [];
-    for (i in kami){
-        h.push(i);
-    }
-    for (i in simo){
-        h.push(i);
+        k.push(simo[i]);
     }
 
+
+    let kami_kana = poems[index]["kami_kana"].split(" ")
+    let simo_kana = poems[index]["simo_kana"].split(" ")
+ 
+    h = [];
+    for (i in kami_kana){
+        h.push(kami_kana[i]);
+    }
+    for (i in simo_kana){
+        h.push(simo_kana[i]);
+    }
     return {hiragana: h, kanji: k};
 }
 
